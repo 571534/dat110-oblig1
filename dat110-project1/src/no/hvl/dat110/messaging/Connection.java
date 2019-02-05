@@ -41,13 +41,11 @@ public class Connection {
 			e.printStackTrace();
 		}
 
-		throw new RuntimeException("not yet implemented");
-
 	}
 
 	public Message receive() {
 
-		Message message;
+		Message message = null;
 		byte[] recvbuf = new byte[MessageConfig.SEGMENTSIZE];
 		
 		try {
@@ -62,10 +60,6 @@ public class Connection {
 		}
 		// TODO
 		// read a segment from the input stream and decapsulate into message
-		
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
 
 		return message;
 

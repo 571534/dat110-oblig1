@@ -17,7 +17,7 @@ public class MessagingClient {
 
 	// connect to messaging server
 	public Connection connect() {
-		Connection connection;
+		Connection connection = null;
 		try {
 			Socket clientSocket = new Socket(server, port); //lage socket
 			connection = new Connection(clientSocket); //koble socket
@@ -32,9 +32,6 @@ public class MessagingClient {
 		// TODO
 		// create TCP socket for client and connection
 
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
 
 		return connection;
 	}

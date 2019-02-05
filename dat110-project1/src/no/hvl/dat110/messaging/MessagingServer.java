@@ -35,10 +35,6 @@ public class MessagingServer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
 
 		return connection;
 
