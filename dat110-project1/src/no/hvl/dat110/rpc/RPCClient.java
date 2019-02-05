@@ -3,7 +3,6 @@ package no.hvl.dat110.rpc;
 import no.hvl.dat110.messaging.*;
 
 public class RPCClient {
-
 	private MessagingClient msgclient;
 	private Connection connection;
 	
@@ -20,7 +19,7 @@ public class RPCClient {
 		
 		// TODO: connect using the underlying messaging layer connection
 		
-	    throw new RuntimeException("not yet implemented");
+		connection = msgclient.connect();
 			
 	}
 	
@@ -28,7 +27,8 @@ public class RPCClient {
 		
 		// TODO: disconnect/close the underlying messaging connection
 		
-		throw new RuntimeException("not yet implemented");
+		connection.close();
+		connection = null;
 		
 	}
 	
@@ -46,12 +46,14 @@ public class RPCClient {
 		
 		*/
 		
-		if (true) {
-		  throw new RuntimeException("not yet implemented");
-		}
+	
+		connection.send(new Message(rpcrequest));
+		
+		rpcreply = connection.receive().getData();
 		
 		return rpcreply;
 		
 	}
+
 
 }

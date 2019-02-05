@@ -3,6 +3,7 @@ package no.hvl.dat110.messaging;
 import java.io.IOException;
 
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class MessagingClient {
 
@@ -16,10 +17,18 @@ public class MessagingClient {
 
 	// connect to messaging server
 	public Connection connect() {
-
-		Socket clientSocket;
-		Connection connection = null;
-
+		Connection connection;
+		try {
+			Socket clientSocket = new Socket(server, port); //lage socket
+			connection = new Connection(clientSocket); //koble socket
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		// TODO
 		// create TCP socket for client and connection
 

@@ -20,8 +20,12 @@ public class Message {
 
 	public byte[] encapsulate() {
 		
-		byte[] encoded;
+		byte[] encoded = new byte[MessageConfig.SEGMENTSIZE];
+		encoded[0] = (byte)payload.length;
 		
+		for (int i = 0; i < payload.length; i++) {
+			encoded[i+1] = payload[i];
+		}
 		// TODO
 		// encapulate/encode the payload of the message
 		
@@ -34,9 +38,10 @@ public class Message {
 	}
 
 	public void decapsulate(byte[] received) {
-
-		// TODO
-		// decapsulate data in received and put in payload
+	
+		for (int i = 0; i<received.length; i++) {
+			payload[i] = received[i+1]; 
+		}
 		
 	   throw new RuntimeException("not yet implemented");
 		
