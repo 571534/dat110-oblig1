@@ -25,7 +25,6 @@ public class MessagingServer {
 	public Connection accept() {
 
 		Connection connection = null;
-
 		// TODO
 		// accept TCP connection on welcome socket and create connection
 		try {

@@ -54,6 +54,9 @@ public class RPCServer {
 		   if (impl != null) {
 			   Message message = new Message(impl.invoke(data));
 			   connection.send(message);
+		   } else {
+			   Message message = new Message();
+			   connection.send(message);
 		   }
 		   
 		   if (rpcid == RPCCommon.RPIDSTOP) {

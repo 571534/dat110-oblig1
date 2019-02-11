@@ -28,20 +28,13 @@ public class Controller  {
 		displayclient.connect();
 		sensorclient.connect();
 
+		// register RPC methods in the RPC layer
 		display = new Display();
 		display.register(displayclient);
 
 		sensor = new Sensor();
 		sensor.register(sensorclient);
-		// register RPC methods in the RPC layer
-		displayclient.register(stopdisplay);
-		sensorclient.register(stopsensor);
 
-		
-		if (true) {
-			  throw new RuntimeException("not yet implemented");
-		}
-		
 		// register stop methods in the RPC middleware
 		displayclient.register(stopdisplay);
 		sensorclient.register(stopsensor);
